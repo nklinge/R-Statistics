@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage[german]{babel}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{svg}
+
+\graphicspath{ {./images/} }
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[subsection]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\setcounter{tocdepth}{2}
+
+\title{R Statistics}
+\author{Niklas Klinge}
+\date{September 2018}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Schätzen, Testen und Vorhersagen}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l l}
+        print() & gibt für die Regressionsgleichung und Punktschätzer der Koeffizienten aus \\
+        summary() & gibt umfangreiche Regressionsdaten aus \\
+        coef() & gibt die Punktschätzer der Koeffizienten aus \\
+        residuals() & gibt die Residuen aus \\
+        fitted() & gibt die geschätzten Werte der abhängigen Variable aus \\
+        anova() & gibt die Varianzanalyse für ein oder mehrere geschätzte Modelle aus \\
+        predict() & gibt Vorhersagen anhand des geschätzten Modells aus \\
+        plot() & gibt diagnostische Grafiken aus \\
+        confint() & gibt Konfidenzintervalle aus \\
+        deviance() & gibt die Summe der Fehlerquadrate (residual sum of squares) aus \\
+        vcov() & gibt die Varianz-Kovarianz-Matrix aus \\
+        logLik() & gibt die log-likelihood (unter Normalverteilungsannahme) aus \\
+        AIC() & Informationskriterien (Akaike, ...) jeweils unter Normalverteilungsannahme \\
+    \end{tabular}
+    \caption{(Diagnose-)Funktionen für geschätzte Modelle}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Wahrscheinlichkeitstheorie}
+
+\subsubsection{Zufallsvariablen}
+
+\begin{definition}{Zufallsereignisse}
+    \textit{Zufallsereignisse} sind die Ergebnisse von Zufallsexperimenten. Ein \textit{Zufallsexperiment} sei für unsere Zwecke ein Experiment, bei dem die Versuchsbedingungen nicht den Ausgang des Experiments festlegen. Das ist ein großes Wort, denn es lässt sich gar nicht so leicht realsieren. Man denke an den \textit{perfekten} Würfel oder die \textit{perfekte} Münze und dann noch an den jeweils \textit{perfekten} (und immer gleichen) Wurf.
+\end{definition}
+
+\begin{definition}{Zufallsvariable}
+    Eine \textit{Zufallsvariable} ist (für unsere Zwecke) eine Abbildung aus einem Wahrscheinlichkeitsraum in die Menge der reellen Zahlen. Sie ist also eher eine Funktion als eine Variable. Im Gegensatz zu einer Realisierung enthält sie noch alle Möglichkeiten, wie ein Zufallsexperiment ausgehen kann. Diese Feinheit fällt im Alltag nicht so auf. Manchmal ist es jedoch ganz hilfreich, sich daran zu erinnern.
+\end{definition}
+
+\begin{definition}{}
+    Zufallsvariablen können diskret oder stetig sein. Eine \textit{diskrete} Zufallsvariable ist so beschaffen, dass der Wertebereich durch ganze Zahlen beschrieben werden kann (wie Arbeitsstellen). Die Menge möglicher Ergebnisse ist also abzählbar (unendlich). Eine \textit{stetige} Zufallsvariable kann dagegen jeden reellen Wert annehmen, sodass die Ergebnismenge unendlich und nicht abzählbar ist (wie Stundenlöhne).
+\end{definition}
+
+\pagebreak
+
+\subsubsection{Wahrscheinlichkeitsverteilung}
+
+\textbf{Wahrscheinlichkeitsfunktion für diskrete Zufallsvariablen}
+\begin{definition}{Wahrscheinlichkeitsfunktion, diskret}
+    Wenn eine diskrete Zufallsvariable untersucht wird, kann die Wahrscheinlichkeitsfunktion in Form einer (Werte-)Tabelle oder eines Graphen beschrieben werden. Um eine Tabelle zu erstellen, legt man eine Spalte mit den möglichen Werten der Zufallsvariable und eine Spalte mit der Wahrscheinlichkeit an, mit der diese auftreten. Bei der grafischen Darstellung der Wahrscheinlichkeitsfunktion (einem Balkendiagramm) trägt man die möglichen Werte der Zufallsvariable auf der Horizontalachse ein und die Höhe der veritakelen Balken jedes Wertes zeigt die Wahrscheinlichkeit, mit der diese in Erscheinung tritt.
+\end{definition}
+
+\begin{remark}
+    Die Summe der Wahrscheinlichkeiten für jedes Experiment muss stets 1 sein.
+\end{remark}
+\noindent \textbf{Die Wahrscheinlichkeitsdichte für stetige Zufallsvariable} \\ Weil eine stetige Zufallsvariable unendlich viele Werte annehmen kann, ist die Wahrscheinlichkeit, dass ein bestimmt Wert exakt auftritt, gleich Null!
+
+\begin{definition}
+    Wenn eine stetige Zufallsvariable betrachtet wird, kann die Wahrscheinlichkeitsdichte als Funktionsvorschrift oder Graph beschrieben werden. Die Funktionsvorschrift weist jedem Wert der Zufallsvariable eine Wahrscheinlichkeitsdichte zu. In einer grafischen Abbildung der Wahrscheinlichkeitsdichte sind die möglichen Werte der Zufallsvariable auf der horizontalen Achse, und eine Kurve (ohne Balken oder Unterbrechungen) verläuft irgendwo oberhalb der Achse.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includesvg{D:\Normal_Distribution_PDF.svg}
+    \caption{Dichtefunktionen der Normalverteilung.}
+    \label{fig:Dichtefunktion}
+\end{figure}
+
+\end{document}
